@@ -1,0 +1,49 @@
+# Environment variables (NEVER commit these)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rails
+*.rbc
+capybara-*.html
+.rspec
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/*.sqlite3-shm
+/db/*.sqlite3-wal
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/public/assets
+.byebug_history
+.dat*
+.repl_history
+*.bridgesupport
+test/tmp/
+test/version_tmp/
+coverage/
+InsecureRequestWarning
+Gemfile.lock
+/config/master.key
+/config/credentials/*.key
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
