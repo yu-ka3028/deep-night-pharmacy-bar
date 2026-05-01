@@ -4,6 +4,7 @@
 - DBはSupabase（PostgreSQL）の無料枠を使用
 - 認証なし
 - お題データはSupabaseダッシュボードから直接insert（パブリックリポジトリにデータを含めないため）
+- シェアURLは連番IDを使わずUUIDにする（連番だと全件列挙できてしまうため）
 
 ---
 
@@ -23,7 +24,7 @@
 
 | カラム | 型 | 説明 |
 |---|---|---|
-| id | integer | PK |
+| id | uuid | PK（シェアURL用） |
 | topic_id | integer | FK → topics.id |
 | user_input | text | ユーザーの回答 |
 | ai_response | text | 服薬指導箋の全文 |
@@ -33,7 +34,7 @@
 
 | カラム | 型 | 説明 |
 |---|---|---|
-| id | integer | PK |
+| id | uuid | PK（シェアURL用） |
 | user_input | text | 今日やったこと |
 | ai_response | text | 副作用レポートの全文 |
 | created_at | datetime | |
@@ -58,3 +59,5 @@ side_effect_reports
 ## シェア機能
 - `/prescriptions/:id` → 服薬指導箋のシェアページ（OGP対応）
 - `/side_effect_reports/:id` → 副作用レポートのシェアページ（OGP対応）
+
+`:id` はUUIDのため推測・列挙不可。
