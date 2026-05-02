@@ -1,6 +1,9 @@
 <div class="topic-container">
   <% if @topic %>
     <section class="topic-card">
+      <div class="page-icon-row">
+        <%= inline_svg "feature1-notes.svg", css_class: "page-icon" %>
+      </div>
       <p class="topic-category"><%= @topic.category %></p>
       <h1 class="topic-name"><%= @topic.name %></h1>
       <p class="topic-rule"><%= @topic.rule %></p>

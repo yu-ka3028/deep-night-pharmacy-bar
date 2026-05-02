@@ -1,11 +1,13 @@
 <div class="landing">
   <header class="landing-hero">
+    <span class="icon-placeholder landing-mascot"></span>
     <h1 class="landing-title">深夜薬局バー</h1>
     <p class="landing-subtitle">柴犬薬剤師があなたの処方箋を発行します</p>
   </header>
 
   <div class="feature-cards">
     <div class="feature-card">
+      <%= inline_svg "feature1-notes.svg", css_class: "feature-icon" %>
       <p class="feature-label">FEATURE 01</p>
       <h2 class="feature-name">服薬指導箋</h2>
       <p class="feature-desc">お題に答えると、あなただけの服薬指導箋が届きます。</p>
@@ -13,6 +15,7 @@
     </div>
 
     <div class="feature-card">
+      <%= inline_svg "feature2-diary.svg", css_class: "feature-icon" %>
       <p class="feature-label">FEATURE 02</p>
       <h2 class="feature-name">今日の副作用レポート</h2>
       <p class="feature-desc">今日の出来事を話すと、副作用レポートとして記録されます。</p>
