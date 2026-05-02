@@ -14,6 +14,105 @@
  *= require_self
  */
 
+/* nav */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* landing */
+.landing {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.landing-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.landing-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 48px;
+}
+
+.feature-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 32px 24px;
+  width: 280px;
+  text-align: left;
+}
+
+.feature-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.feature-name {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.feature-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
 .flash-alert {
   background: #fff3cd;
   color: #856404;

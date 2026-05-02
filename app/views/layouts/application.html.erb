@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <nav class="site-nav">
+      <%= link_to "深夜薬局バー", root_path, class: "nav-logo" %>
+      <div class="nav-links">
+        <%= link_to "服薬指導箋", play_path, class: "nav-link" %>
+        <%= link_to "副作用レポート", new_side_effect_path, class: "nav-link" %>
+      </div>
+    </nav>
     <% if flash[:alert] %>
       <div class="flash-alert"><%= flash[:alert] %></div>
     <% end %>
