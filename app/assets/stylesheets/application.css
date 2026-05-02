@@ -17,8 +17,8 @@
 /* ── color tokens ── */
 :root {
   --bg:          #f0f4f2;
-  --bg-card:     #ffffff;
-  --bg-input:    #ffffff;
+  --bg-card:     rgba(255, 255, 255, 0.45);
+  --bg-input:    rgba(255, 255, 255, 0.4);
   --text:        #1c1c1c;
   --text-muted:  #5a6b65;
   --text-label:  #3d6b5a;
@@ -34,8 +34,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:          #040810;
-    --bg-card:     #181d20;
-    --bg-input:    #1e2528;
+    --bg-card:     rgba(24, 29, 32, 0.45);
+    --bg-input:    rgba(30, 37, 40, 0.4);
     --text:        #e4e8e6;
     --text-muted:  #8a9e97;
     --text-label:  #7aaa96;
@@ -292,15 +292,20 @@ body {
 }
 
 .greeting-text {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--text-muted);
   text-align: left;
-  max-width: 280px;
+  max-width: 320px;
 }
 
 .greeting-text strong {
   color: var(--text);
+}
+
+.feature-greeting {
+  margin-bottom: 24px;
+  justify-content: flex-start;
 }
 
 /* ── お品書き ── */
@@ -567,30 +572,41 @@ body {
   margin-bottom: 28px;
 }
 
+.topic-section {
+  padding: 8px 0 24px;
+  margin-bottom: 0;
+}
+
+.topic-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  margin-bottom: 28px;
+}
+
 .topic-category {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--text-label);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .topic-name {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .topic-rule {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-muted);
-  margin-bottom: 10px;
-  line-height: 1.65;
+  margin-bottom: 12px;
+  line-height: 1.7;
 }
 
 .topic-question {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--text);
   font-weight: 500;
 }
@@ -602,10 +618,10 @@ body {
 
 .input-section label {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-muted);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 0.02em;
 }
 
@@ -613,19 +629,27 @@ body {
   width: 100%;
   background: var(--bg-input);
   color: var(--text);
-  border: 1px solid var(--border-card);
+  border: 1px solid var(--accent);
+  outline: 1px solid rgba(122, 170, 150, 0.5);
+  outline-offset: 4px;
   border-radius: 8px;
   padding: 12px 14px;
   font-size: 15px;
   font-family: inherit;
   line-height: 1.6;
   resize: vertical;
-  transition: border-color 0.15s;
+  transition: box-shadow 0.2s, outline-color 0.2s;
+  box-shadow:
+    0 0 8px  rgba(122, 170, 150, 0.25),
+    0 0 18px rgba(122, 170, 150, 0.12);
 }
 
 .input-section textarea:focus {
-  outline: none;
-  border-color: var(--accent);
+  outline-color: rgba(122, 170, 150, 0.9);
+  box-shadow:
+    0 0 10px rgba(122, 170, 150, 0.6),
+    0 0 24px rgba(122, 170, 150, 0.35),
+    0 0 48px rgba(122, 170, 150, 0.15);
 }
 
 .input-section textarea::placeholder {
@@ -634,8 +658,9 @@ body {
 }
 
 input[type="submit"] {
-  display: inline-block;
-  padding: 11px 28px;
+  display: block;
+  margin: 0 auto;
+  padding: 11px 40px;
   background: var(--accent);
   color: #fff;
   border: none;
@@ -646,6 +671,31 @@ input[type="submit"] {
   cursor: pointer;
   letter-spacing: 0.02em;
   transition: background 0.15s;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-clear {
+  padding: 11px 24px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-clear:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
 }
 
 input[type="submit"]:hover {

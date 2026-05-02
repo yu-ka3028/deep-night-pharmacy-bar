@@ -1,20 +1,26 @@
 <div class="topic-container">
   <% if @topic %>
-    <section class="topic-card">
-      <div class="page-icon-row">
-        <%= inline_svg "feature1-notes.svg", css_class: "page-icon" %>
-      </div>
+    <% pharmacist_name = ["御耳みかく", "真丸ねるこ", "丸寝まさる", "回尾てんた", "気紛まいか", "愛嬌りつお"].sample %>
+    <div class="pharmacist-greeting feature-greeting">
+      <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
+      <p class="greeting-text">
+        薬剤師の<strong><%= pharmacist_name %></strong>です。今宵のお題です。思うところを、お聞かせいただけますか。
+      </p>
+    </div>
+
+    <section class="topic-section">
       <p class="topic-category"><%= @topic.category %></p>
       <h1 class="topic-name"><%= @topic.name %></h1>
       <p class="topic-rule"><%= @topic.rule %></p>
       <p class="topic-question"><%= @topic.question %></p>
     </section>
+    <div class="topic-divider"></div>
 
     <%= form_with url: prescriptions_path, method: :post do |f| %>
       <%= f.hidden_field :topic_id, value: @topic.id %>
       <div class="input-section">
-        <%= f.label :answer, "あなたの答えを書いてください" %>
-        <%= f.text_area :answer, placeholder: "思ったことを自由に...", rows: 6 %>
+        <%= f.label :answer, "思ったことをそのまま、お聞かせください。" %>
+        <%= f.text_area :answer, placeholder: "パッと思いついたのは〜かな、知らんけど", rows: 6 %>
       </div>
       <%= f.submit "服薬指導箋を生成する" %>
     <% end %>
