@@ -33,7 +33,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:          #0e1113;
+    --bg:          #040810;
     --bg-card:     #181d20;
     --bg-input:    #1e2528;
     --text:        #e4e8e6;
@@ -49,6 +49,19 @@
   }
 }
 
+/* ── neon flicker animation ── */
+@keyframes neon-flicker {
+  0%, 86%   { opacity: 1; }
+  87%       { opacity: 0.06; }
+  87.4%     { opacity: 1; }
+  88.2%     { opacity: 0.1; }
+  88.8%     { opacity: 0; }
+  90%       { opacity: 1; }
+  90.6%     { opacity: 0.5; }
+  91.2%     { opacity: 1; }
+  100%      { opacity: 1; }
+}
+
 /* ── reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -59,10 +72,26 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(255, 130, 0, 0.13) 0%, transparent 100%),
+    radial-gradient(ellipse 30% 12% at 50% 108%, rgba(255, 100, 0, 0.07) 0%, transparent 100%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
   transition: background 0.2s, color 0.2s;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% -5%,  rgba(255, 130, 0, 0.28)  0%, transparent 100%),
+      radial-gradient(ellipse 30% 12% at 50% 108%, rgba(255, 100, 0, 0.14)  0%, transparent 100%),
+      radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.18)  0%, transparent 48%),
+      radial-gradient(ellipse at 92% 92%,           rgba(10, 120, 110, 0.12) 0%, transparent 44%),
+      var(--bg);
+    background-attachment: fixed;
+  }
 }
 
 /* ── nav ── */
@@ -181,12 +210,53 @@ body {
   text-align: center;
 }
 
+.landing {
+  position: relative;
+}
+
+.landing-glow {
+  position: absolute;
+  top: 0;
+  left: -24px;
+  right: -24px;
+  height: 75%;
+  background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(255, 120, 0, 0.22) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+  animation: neon-flicker 10s infinite;
+}
+
+.landing-hero,
+.feature-cards {
+  position: relative;
+  z-index: 1;
+}
+
 .landing-title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-  color: var(--text);
+  font-family: 'New Tegomin', serif;
+  font-size: 84px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  color: #fff5e0;
+  line-height: 1.1;
+  text-shadow:
+    0 0 4px  rgba(255, 248, 240, 0.95),
+    0 0 12px rgba(255, 224, 102, 0.75),
+    0 0 26px rgba(255, 170, 0,  0.55),
+    0 0 55px rgba(255, 119, 0,  0.35),
+    0 0 90px rgba(255, 90,  0,  0.2);
+}
+
+.neon-flicker {
+  display: inline-block;
+  animation: neon-flicker 10s infinite;
+}
+
+@media (max-width: 600px) {
+  .landing-title {
+    font-size: 52px;
+  }
 }
 
 .landing-subtitle {
@@ -432,3 +502,4 @@ input[type="submit"]:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
+
