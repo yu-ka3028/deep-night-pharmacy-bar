@@ -6,6 +6,9 @@
 .env.test.local
 .env.production.local
 
+# Data files (not committed per policy)
+docs/supabase_topics_insert.sql
+
 # Rails
 *.rbc
 capybara-*.html
