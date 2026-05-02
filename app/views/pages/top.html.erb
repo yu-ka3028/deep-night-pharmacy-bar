@@ -2,24 +2,40 @@
   <div class="landing-glow" aria-hidden="true"></div>
   <header class="landing-hero">
     <h1 class="landing-title"><span class="neon-flicker">深夜</span>薬局Bar</h1>
-    <p class="landing-subtitle">柴犬薬剤師があなたの処方箋を発行します</p>
+    <p class="landing-subtitle">柴犬薬剤師があなたのお悩みにお応えいたします</p>
   </header>
 
-  <div class="feature-cards">
-    <div class="feature-card">
-      <%= inline_svg "feature1-notes.svg", css_class: "feature-icon" %>
-      <p class="feature-label">FEATURE 01</p>
-      <h2 class="feature-name">服薬指導箋</h2>
-      <p class="feature-desc">お題に答えると、あなただけの服薬指導箋が届きます。</p>
-      <%= link_to "処方箋を受け取る", play_path, class: "feature-btn" %>
-    </div>
+  <% pharmacist_name = ["御耳みかく", "真丸ねるこ", "丸寝まさる", "回尾てんた", "気紛まいか", "愛嬌りつお"].sample %>
+  <div class="pharmacist-greeting">
+    <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
+    <p class="greeting-text">
+      こんにちは、薬剤師の<strong><%= pharmacist_name %></strong>です。本日はどうなさいましたか
+    </p>
+  </div>
 
-    <div class="feature-card">
-      <%= inline_svg "feature2-diary.svg", css_class: "feature-icon" %>
-      <p class="feature-label">FEATURE 02</p>
-      <h2 class="feature-name">今日の副作用レポート</h2>
-      <p class="feature-desc">今日の出来事を話すと、副作用レポートとして記録されます。</p>
-      <%= link_to "レポートを発行する", new_side_effect_path, class: "feature-btn" %>
-    </div>
+  <div class="osinagaki">
+    <p class="osinagaki-header">本日のご案内</p>
+
+    <div class="osinagaki-divider"></div>
+
+    <%= link_to play_path, class: "osinagaki-item" do %>
+      <div class="osinagaki-item-header">
+        <%= inline_svg "feature1-notes.svg", css_class: "osinagaki-icon" %>
+        <h2 class="osinagaki-name">服薬指導箋</h2>
+      </div>
+      <p class="osinagaki-desc">お題にお答えいただくと、柴犬薬剤師がお薬と服薬指導箋をご用意いたします。</p>
+      <p class="osinagaki-link">指導箋を受け取る →</p>
+    <% end %>
+
+    <div class="osinagaki-divider"></div>
+
+    <%= link_to new_side_effect_path, class: "osinagaki-item" do %>
+      <div class="osinagaki-item-header">
+        <%= inline_svg "feature2-diary.svg", css_class: "osinagaki-icon" %>
+        <h2 class="osinagaki-name">今日の副作用レポート</h2>
+      </div>
+      <p class="osinagaki-desc">今日のお困りごとをお聞かせください。副作用レポートを発行いたします。</p>
+      <p class="osinagaki-link">レポートを発行する →</p>
+    <% end %>
   </div>
 </div>

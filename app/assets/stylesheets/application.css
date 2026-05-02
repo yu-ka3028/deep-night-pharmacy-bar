@@ -73,8 +73,9 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(255, 130, 0, 0.13) 0%, transparent 100%),
-    radial-gradient(ellipse 30% 12% at 50% 108%, rgba(255, 100, 0, 0.07) 0%, transparent 100%),
+    linear-gradient(to right, rgba(2, 4, 8, 0.7) 0%, transparent 20%, transparent 80%, rgba(2, 4, 8, 0.7) 100%),
+    radial-gradient(ellipse 28% 65% at 50% -5%,  rgba(255, 130, 0, 0.1)  0%, transparent 100%),
+    radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.05) 0%, transparent 100%),
     var(--bg);
   background-attachment: fixed;
   color: var(--text);
@@ -85,10 +86,11 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     background:
-      radial-gradient(ellipse 70% 60% at 50% -5%,  rgba(255, 130, 0, 0.28)  0%, transparent 100%),
-      radial-gradient(ellipse 30% 12% at 50% 108%, rgba(255, 100, 0, 0.14)  0%, transparent 100%),
-      radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.18)  0%, transparent 48%),
-      radial-gradient(ellipse at 92% 92%,           rgba(10, 120, 110, 0.12) 0%, transparent 44%),
+      linear-gradient(to right, rgba(2, 4, 8, 0.82) 0%, transparent 22%, transparent 78%, rgba(2, 4, 8, 0.82) 100%),
+      radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(255, 130, 0, 0.18)  0%, transparent 100%),
+      radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.07)  0%, transparent 100%),
+      radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.14)  0%, transparent 48%),
+      radial-gradient(ellipse at 92% 92%,           rgba(10, 120, 110, 0.1)  0%, transparent 44%),
       var(--bg);
     background-attachment: fixed;
   }
@@ -220,22 +222,23 @@ body {
   left: -24px;
   right: -24px;
   height: 75%;
-  background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(255, 120, 0, 0.22) 0%, transparent 100%);
+  background: radial-gradient(ellipse 30% 100% at 50% 0%, rgba(255, 120, 0, 0.13) 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
   animation: neon-flicker 10s infinite;
 }
 
 .landing-hero,
-.feature-cards {
+.feature-cards,
+.osinagaki {
   position: relative;
   z-index: 1;
 }
 
 .landing-title {
   font-family: 'New Tegomin', serif;
-  font-size: 84px;
-  font-weight: 500;
+  font-size: 52px;
+  font-weight: 400;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
   color: #fff5e0;
@@ -255,14 +258,204 @@ body {
 
 @media (max-width: 600px) {
   .landing-title {
-    font-size: 52px;
+    font-size: 36px;
   }
 }
 
 .landing-subtitle {
   font-size: 15px;
   color: var(--text-muted);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border: none;
+  border-image: linear-gradient(to right, transparent, var(--border) 25%, var(--border) 75%, transparent) 1;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+/* ── 薬剤師の挨拶 ── */
+.pharmacist-greeting {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  justify-content: center;
+}
+
+.pharmacist-icon {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  object-fit: contain;
+  mask-image: radial-gradient(circle at center, black 52%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at center, black 52%, transparent 78%);
+}
+
+.greeting-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  text-align: left;
+  max-width: 280px;
+}
+
+.greeting-text strong {
+  color: var(--text);
+}
+
+/* ── お品書き ── */
+.osinagaki {
+  display: inline-block;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(140, 90, 10, 0.18) 0%, transparent 38%),
+    radial-gradient(ellipse at 82% 72%, rgba(110, 70, 5,  0.14) 0%, transparent 32%),
+    radial-gradient(ellipse at 45% 90%, rgba(160, 110, 20, 0.1) 0%, transparent 28%),
+    #e0d0a8;
+  border: 1px solid #9a8455;
+  border-radius: 3px 2px 4px 2px;
+  box-shadow:
+    inset 0 2px 8px rgba(80, 50, 0, 0.12),
+    3px 5px 20px rgba(0, 0, 0, 0.5),
+    -1px -1px 4px rgba(0, 0, 0, 0.2);
+  padding: 32px 40px;
+  text-align: left;
+  transform: rotate(-1.4deg) skewX(-0.3deg);
+  max-width: 440px;
+  width: 100%;
+  color: #2a1a06;
+  position: relative;
+}
+
+.osinagaki::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 0%, transparent 40%, rgba(0,0,0,0.05) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki {
+    background:
+      radial-gradient(ellipse at 12% 18%, rgba(100, 60, 5,  0.4) 0%, transparent 38%),
+      radial-gradient(ellipse at 82% 72%, rgba(80,  45, 0,  0.3) 0%, transparent 32%),
+      radial-gradient(ellipse at 45% 90%, rgba(120, 80, 10, 0.25) 0%, transparent 28%),
+      #1a1206;
+    border-color: #5a4018;
+    box-shadow:
+      inset 0 2px 12px rgba(0, 0, 0, 0.4),
+      3px 5px 28px rgba(0, 0, 0, 0.8),
+      -1px -1px 4px rgba(0, 0, 0, 0.4);
+    color: #d4b870;
+  }
+}
+
+.osinagaki-header {
+  font-family: 'New Tegomin', serif;
+  font-size: 16px;
+  letter-spacing: 0.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.osinagaki-divider {
+  border: none;
+  border-top: 1px solid #b8a880;
+  margin: 16px 0;
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki-divider {
+    border-top-color: #6a5428;
+  }
+}
+
+.osinagaki-item {
+  display: block;
+  padding: 12px 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.osinagaki-item:hover {
+  opacity: 0.75;
+}
+
+.osinagaki-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.osinagaki-icon {
+  width: 36px;
+  height: 36px;
+  color: #5a4010;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki-icon {
+    color: #d4a050;
+  }
+}
+
+.osinagaki-name {
+  font-family: 'New Tegomin', serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki-name {
+    color: #f5ead8;
+  }
+}
+
+.osinagaki-desc {
+  font-family: 'New Tegomin', serif;
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.75;
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki-desc {
+    color: #f0e0c0 !important;
+    opacity: 1 !important;
+  }
+}
+
+.osinagaki-link {
+  display: inline-block;
+  font-size: 13px;
+  font-family: 'New Tegomin', serif;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #5a4010;
+  padding-left: 30px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.osinagaki-link:hover {
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .osinagaki-link {
+    color: #e0b870;
+  }
 }
 
 .feature-cards {
