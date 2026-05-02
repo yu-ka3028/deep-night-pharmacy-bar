@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_05_02_163137) do
+ActiveRecord::Schema[7.0].define(version: 2026_05_02_165338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pgcrypto"
@@ -32,6 +32,14 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_02_163137) do
   create_enum "oauth_registration_type", ["dynamic", "manual"]
   create_enum "oauth_response_type", ["code"]
   create_enum "one_time_token_type", ["confirmation_token", "reauthentication_token", "recovery_token", "email_change_token_new", "email_change_token_current", "phone_change_token"]
+
+  create_table "prescriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "topic_id", null: false
+    t.text "user_input", null: false
+    t.text "ai_response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
