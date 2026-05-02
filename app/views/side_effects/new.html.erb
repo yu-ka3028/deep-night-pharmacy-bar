@@ -1,0 +1,15 @@
+<div class="topic-container">
+  <section class="topic-card">
+    <p class="topic-category">今日の副作用レポート</p>
+    <h1 class="topic-name">今日、何してた？</h1>
+    <p class="topic-rule">今日やったこと・起きたこと・感じたことを自由に書いてください。柴犬薬剤師が副作用レポートを発行します。</p>
+  </section>
+
+  <%= form_with url: side_effects_path, method: :post do |f| %>
+    <div class="input-section">
+      <%= f.label :user_input, "今日やったこと" %>
+      <%= f.text_area :user_input, placeholder: "例：Railsのgemバージョンで3時間溶けた", rows: 6 %>
+    </div>
+    <%= f.submit "副作用レポートを発行する" %>
+  <% end %>
+</div>

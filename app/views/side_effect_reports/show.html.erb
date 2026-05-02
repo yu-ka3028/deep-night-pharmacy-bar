@@ -1,0 +1,20 @@
+<div class="prescription-container">
+  <section class="original-topic">
+    <p class="topic-category">今日の副作用レポート</p>
+    <div class="user-answer">
+      <p class="answer-label">今日やったこと</p>
+      <p class="answer-text"><%= @report.user_input %></p>
+    </div>
+  </section>
+
+  <section class="prescription-card">
+    <div class="prescription-text">
+      <%= simple_format(@report.ai_response) %>
+    </div>
+  </section>
+
+  <div class="prescription-actions">
+    <%= link_to "もう一度レポートを書く", new_side_effect_path, class: "btn-retry" %>
+    <%= link_to "今日のお題へ", root_path, class: "btn-retry" %>
+  </div>
+</div>
