@@ -1,3 +1,21 @@
 <div class="prescription-container">
-  <p>服薬指導箋（Claude API連携は issue #4 で実装予定）</p>
+  <section class="original-topic">
+    <p class="topic-category"><%= @topic.category %></p>
+    <h2 class="topic-name"><%= @topic.name %></h2>
+    <p class="topic-question"><%= @topic.question %></p>
+    <div class="user-answer">
+      <p class="answer-label">あなたの答え</p>
+      <p class="answer-text"><%= @prescription.user_input %></p>
+    </div>
+  </section>
+
+  <section class="prescription-card">
+    <div class="prescription-text">
+      <%= simple_format(@prescription.ai_response) %>
+    </div>
+  </section>
+
+  <div class="prescription-actions">
+    <%= link_to "もう一度やってみる", root_path, class: "btn-retry" %>
+  </div>
 </div>
