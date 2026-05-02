@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>PharmacyBar</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,10 +7,26 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <nav class="site-nav">
+      <%= link_to root_path, class: "nav-logo", title: "トップ" do %>
+        <span class="icon-placeholder nav-logo-img"></span>
+      <% end %>
+      <div class="nav-links">
+        <%= link_to play_path, class: "nav-icon-link", title: "服薬指導箋" do %>
+          <%= inline_svg "feature1-notes.svg", css_class: "nav-icon" %>
+        <% end %>
+        <%= link_to new_side_effect_path, class: "nav-icon-link", title: "副作用レポート" do %>
+          <%= inline_svg "feature2-diary.svg", css_class: "nav-icon" %>
+        <% end %>
+      </div>
+    </nav>
     <% if flash[:alert] %>
       <div class="flash-alert"><%= flash[:alert] %></div>
     <% end %>

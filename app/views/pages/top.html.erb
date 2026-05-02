@@ -1,0 +1,51 @@
+<div class="landing">
+  <div class="landing-glow" aria-hidden="true"></div>
+  <header class="landing-hero">
+    <h1 class="landing-title"><span class="neon-flicker">深夜</span>薬局Bar</h1>
+    <p class="landing-subtitle">柴犬薬剤師があなたのお悩みにお応えいたします</p>
+  </header>
+
+  <div class="pharmacist-greeting">
+    <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
+    <p class="greeting-text">
+      今宵もお越しくださいましたか。本日はどちらにいたしましょうか。
+    </p>
+  </div>
+
+  <div class="osinagaki-wrap">
+    <div class="osinagaki">
+      <p class="osinagaki-header">本日のご案内</p>
+
+      <div class="osinagaki-divider"></div>
+
+      <%= link_to play_path, class: "osinagaki-item" do %>
+        <div class="osinagaki-item-header">
+          <%= inline_svg "feature1-notes.svg", css_class: "osinagaki-icon" %>
+          <h2 class="osinagaki-name">服薬指導箋</h2>
+        </div>
+        <p class="osinagaki-desc">お題にお答えいただくと、柴犬薬剤師がお薬と服薬指導箋をご用意いたします。</p>
+        <p class="osinagaki-link">指導箋を受け取る →</p>
+      <% end %>
+
+      <div class="osinagaki-divider"></div>
+
+      <%= link_to new_side_effect_path, class: "osinagaki-item" do %>
+        <div class="osinagaki-item-header">
+          <%= inline_svg "feature2-diary.svg", css_class: "osinagaki-icon" %>
+          <h2 class="osinagaki-name">今日の副作用レポート</h2>
+        </div>
+        <p class="osinagaki-desc">今日のお困りごとをお聞かせください。副作用レポートを発行いたします。</p>
+        <p class="osinagaki-link">レポートを発行する →</p>
+      <% end %>
+    </div>
+
+    <span class="page-curl" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+        <!-- 折れ目の影（カード面に落ちる） -->
+        <polygon points="6,44 44,6 6,6" class="curl-fold-shadow"/>
+        <!-- 折り返した紙片（カード面に重なる） -->
+        <polygon points="8,44 44,8 8,8" class="curl-back"/>
+      </svg>
+    </span>
+  </div>
+</div>

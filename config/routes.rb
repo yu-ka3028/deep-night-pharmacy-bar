@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "topics#show"
+  root "pages#top"
+  get "/play", to: "topics#show", as: :play
 
   resources :prescriptions, only: [:create, :show]
   resources :side_effects, only: [:new, :create]

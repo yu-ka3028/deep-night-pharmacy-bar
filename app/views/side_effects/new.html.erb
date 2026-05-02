@@ -1,15 +1,29 @@
 <div class="topic-container">
-  <section class="topic-card">
+  <% pharmacist_name = ["御耳みかく", "真丸ねるこ", "丸寝まさる", "回尾てんた", "気紛まいか", "愛嬌りつお"].sample %>
+  <div class="pharmacist-greeting feature-greeting">
+    <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
+    <p class="greeting-text">
+      薬剤師の<strong><%= pharmacist_name %></strong>です。本日はどうなさいましたか？
+    </p>
+  </div>
+
+  <section class="topic-section">
     <p class="topic-category">今日の副作用レポート</p>
     <h1 class="topic-name">今日、何してた？</h1>
     <p class="topic-rule">今日やったこと・起きたこと・感じたことを自由に書いてください。柴犬薬剤師が副作用レポートを発行します。</p>
   </section>
+  <div class="topic-divider"></div>
 
-  <%= form_with url: side_effects_path, method: :post do |f| %>
+  <%= form_with url: side_effects_path, method: :post,
+        data: { controller: "autosave", action: "submit->autosave#clear", autosave_key_value: "pharmacy_bar_report" } do |f| %>
     <div class="input-section">
       <%= f.label :user_input, "今日やったこと" %>
-      <%= f.text_area :user_input, placeholder: "例：Railsのgemバージョンで3時間溶けた", rows: 6 %>
+      <%= f.text_area :user_input, placeholder: "例：久々のRailsで rails now とタイポ", rows: 6,
+            data: { autosave_target: "textarea", action: "input->autosave#save" } %>
     </div>
-    <%= f.submit "副作用レポートを発行する" %>
+    <div class="form-actions">
+      <button type="button" class="btn-clear" data-action="click->autosave#clearInput">クリア</button>
+      <%= f.submit "副作用レポートを発行する" %>
+    </div>
   <% end %>
 </div>

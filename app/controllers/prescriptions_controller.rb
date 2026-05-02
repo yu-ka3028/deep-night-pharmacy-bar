@@ -4,7 +4,7 @@ class PrescriptionsController < ApplicationController
     user_input = params[:answer].to_s.strip
 
     if user_input.blank?
-      redirect_to root_path, alert: "回答を入力してください"
+      redirect_to play_path, alert: "回答を入力してください"
       return
     end
 
