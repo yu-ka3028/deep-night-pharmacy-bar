@@ -8,45 +8,25 @@
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any other CSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
 
-/* ── color tokens ── */
+/* ── color tokens (always dark) ── */
 :root {
-  --bg:          #f0f4f2;
-  --bg-card:     rgba(255, 255, 255, 0.45);
-  --bg-input:    rgba(255, 255, 255, 0.4);
-  --text:        #1c1c1c;
-  --text-muted:  #5a6b65;
-  --text-label:  #3d6b5a;
-  --accent:      #3d6b5a;
-  --accent-hover:#2e5244;
-  --border:      #d4deda;
-  --border-card: #c8d8d2;
-  --flash-bg:    #fff8e1;
-  --flash-text:  #5a4000;
-  --flash-border:#f0c040;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:          #040810;
-    --bg-card:     rgba(24, 29, 32, 0.45);
-    --bg-input:    rgba(30, 37, 40, 0.4);
-    --text:        #e4e8e6;
-    --text-muted:  #8a9e97;
-    --text-label:  #7aaa96;
-    --accent:      #7aaa96;
-    --accent-hover:#8bbea8;
-    --border:      #252d2a;
-    --border-card: #2a3530;
-    --flash-bg:    #2a2000;
-    --flash-text:  #f0c040;
-    --flash-border:#5a4000;
-  }
+  --bg:          #040810;
+  --bg-card:     rgba(24, 29, 32, 0.45);
+  --bg-input:    rgba(30, 37, 40, 0.4);
+  --text:        #e4e8e6;
+  --text-muted:  #8a9e97;
+  --text-label:  #7aaa96;
+  --accent:      #7aaa96;
+  --accent-hover:#8bbea8;
+  --border:      #252d2a;
+  --border-card: #2a3530;
+  --flash-bg:    #2a2000;
+  --flash-text:  #f0c040;
+  --flash-border:#5a4000;
 }
 
 /* ── neon flicker animation ── */
@@ -73,27 +53,16 @@ html {
 
 body {
   background:
-    linear-gradient(to right, rgba(2, 4, 8, 0.7) 0%, transparent 20%, transparent 80%, rgba(2, 4, 8, 0.7) 100%),
-    radial-gradient(ellipse 28% 65% at 50% -5%,  rgba(255, 130, 0, 0.1)  0%, transparent 100%),
-    radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.05) 0%, transparent 100%),
+    linear-gradient(to right, rgba(2, 4, 8, 0.82) 0%, transparent 22%, transparent 78%, rgba(2, 4, 8, 0.82) 100%),
+    radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(255, 130, 0, 0.18)  0%, transparent 100%),
+    radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.07)  0%, transparent 100%),
+    radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.14)  0%, transparent 48%),
+    radial-gradient(ellipse at 92% 92%,           rgba(10, 120, 110, 0.1)  0%, transparent 44%),
     var(--bg);
   background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
   transition: background 0.2s, color 0.2s;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background:
-      linear-gradient(to right, rgba(2, 4, 8, 0.82) 0%, transparent 22%, transparent 78%, rgba(2, 4, 8, 0.82) 100%),
-      radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(255, 130, 0, 0.18)  0%, transparent 100%),
-      radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.07)  0%, transparent 100%),
-      radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.14)  0%, transparent 48%),
-      radial-gradient(ellipse at 92% 92%,           rgba(10, 120, 110, 0.1)  0%, transparent 44%),
-      var(--bg);
-    background-attachment: fixed;
-  }
 }
 
 /* ── nav ── */
@@ -174,12 +143,6 @@ body {
   color: var(--accent);
   margin-bottom: 16px;
   display: block;
-}
-
-@media (prefers-color-scheme: dark) {
-  .feature-icon {
-    color: var(--accent);
-  }
 }
 
 .page-icon-row {
@@ -318,16 +281,16 @@ body {
 }
 
 .osinagaki {
-  background: #c8d4ce;
-  border: 1px solid #8aaa94;
+  background: #111a16;
+  border: 1px solid #3a6050;
   border-radius: 3px 2px 4px 2px;
   box-shadow:
-    inset 0 2px 8px rgba(20, 60, 40, 0.1),
-    3px 5px 20px rgba(0, 0, 0, 0.5),
-    -1px -1px 4px rgba(0, 0, 0, 0.2);
+    inset 0 2px 12px rgba(0, 0, 0, 0.4),
+    3px 5px 28px rgba(0, 0, 0, 0.8),
+    -1px -1px 4px rgba(0, 0, 0, 0.4);
   padding: 32px 40px;
   text-align: left;
-  color: #1a2e24;
+  color: #c8e0d4;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
 }
@@ -358,32 +321,11 @@ body {
 }
 
 .curl-fold-shadow {
-  fill: rgba(0, 0, 0, 0.15);
+  fill: rgba(0, 0, 0, 0.4);
 }
 
 .curl-back {
-  fill: #f5faf8;
-}
-
-@media (prefers-color-scheme: dark) {
-  .curl-fold-shadow {
-    fill: rgba(0, 0, 0, 0.4);
-  }
-  .curl-back {
-    fill: #4a6058;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki {
-    background: #111a16;
-    border-color: #3a6050;
-    box-shadow:
-      inset 0 2px 12px rgba(0, 0, 0, 0.4),
-      3px 5px 28px rgba(0, 0, 0, 0.8),
-      -1px -1px 4px rgba(0, 0, 0, 0.4);
-    color: #c8e0d4;
-  }
+  fill: #4a6058;
 }
 
 .osinagaki-header {
@@ -392,26 +334,14 @@ body {
   letter-spacing: 0.5em;
   text-align: center;
   margin-bottom: 20px;
-  color: #1a2e24;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-header {
-    color: #c8e0d4;
-  }
+  color: #c8e0d4;
 }
 
 .osinagaki-divider {
   border: none;
-  border-top: 1px solid #8aaa94;
+  border-top: 1px solid #3a6050;
   margin: 16px 0;
   opacity: 0.5;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-divider {
-    border-top-color: #3a6050;
-  }
 }
 
 .osinagaki-item {
@@ -437,42 +367,24 @@ body {
 .osinagaki-icon {
   width: 36px;
   height: 36px;
-  color: #3d6b5a;
+  color: #7aaa96;
   flex-shrink: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-icon {
-    color: #7aaa96;
-  }
 }
 
 .osinagaki-name {
   font-family: 'New Tegomin', serif;
   font-size: 26px;
   font-weight: 400;
-  color: #0f1f18;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-name {
-    color: #e0f0e8;
-  }
+  color: #e0f0e8;
 }
 
 .osinagaki-desc {
   font-family: 'New Tegomin', serif;
   font-size: 16px;
   line-height: 1.8;
-  color: #1a2e24;
+  color: #c8e0d4;
   margin-bottom: 10px;
   padding-left: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-desc {
-    color: #c8e0d4;
-  }
 }
 
 .osinagaki-link {
@@ -481,19 +393,13 @@ body {
   font-family: 'New Tegomin', serif;
   letter-spacing: 0.08em;
   text-decoration: none;
-  color: #3d6b5a;
+  color: #7aaa96;
   padding-left: 30px;
   transition: opacity 0.15s;
 }
 
 .osinagaki-link:hover {
   opacity: 1;
-}
-
-@media (prefers-color-scheme: dark) {
-  .osinagaki-link {
-    color: #7aaa96;
-  }
 }
 
 .feature-cards {
@@ -778,4 +684,3 @@ input[type="submit"]:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
-
