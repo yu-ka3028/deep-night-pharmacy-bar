@@ -22,5 +22,7 @@ class PrescriptionsController < ApplicationController
   def show
     @prescription = Prescription.find(params[:id])
     @topic = @prescription.topic
+    @og_title = "「#{@topic.name}」への服薬指導箋"
+    @og_description = @prescription.ai_response.truncate(100)
   end
 end
