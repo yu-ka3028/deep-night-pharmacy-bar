@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Default URL options for URL helpers (used in rake tasks, console, etc.)
+  routes.default_url_options = { host: "deep-night-pharmacy-bar.onrender.com", protocol: "https" }
 end

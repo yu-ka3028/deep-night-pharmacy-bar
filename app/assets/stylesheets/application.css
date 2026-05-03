@@ -712,3 +712,30 @@ input[type="submit"]:hover {
   fill: currentColor;
   flex-shrink: 0;
 }
+
+.btn-share-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  background: #06C755;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s;
+}
+
+.btn-share-line:hover {
+  background: #05b34b;
+  color: #fff;
+}
+
+.line-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
