@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
 
+    <% if Rails.env.production? %>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BQ2FW2WN5"></script>
     <script>
@@ -20,6 +21,7 @@
       gtag('js', new Date());
       gtag('config', 'G-5BQ2FW2WN5');
     </script>
+    <% end %>
   </head>
 
   <body>
