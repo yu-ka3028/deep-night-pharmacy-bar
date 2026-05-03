@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>PharmacyBar</title>
+    <title><%= @og_title.present? ? "#{@og_title} | 深夜薬局 Bar" : "深夜薬局 Bar" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta property="og:site_name" content="深夜薬局 Bar">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= @og_title.present? ? "#{@og_title} | 深夜薬局 Bar" : "深夜薬局 Bar" %>">
+    <meta property="og:description" content="<%= @og_description.present? ? @og_description : "知的好奇心に、薬を。深夜の薬剤師があなたのアイデアに服薬指導箋を発行します。" %>">
+    <meta property="og:image" content="<%= "#{request.base_url}/ogp.png" %>">
+    <meta property="og:url" content="<%= request.url %>">
+    <meta name="twitter:card" content="summary_large_image">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.googleapis.com">

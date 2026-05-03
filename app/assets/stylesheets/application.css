@@ -684,3 +684,58 @@ input[type="submit"]:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+.btn-share-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-share-x:hover {
+  background: #1a1a1a;
+  border-color: #555;
+  color: #fff;
+}
+
+.x-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-share-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  background: #06C755;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s;
+}
+
+.btn-share-line:hover {
+  background: #05b34b;
+  color: #fff;
+}
+
+.line-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
