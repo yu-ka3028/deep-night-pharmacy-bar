@@ -14,10 +14,12 @@
     <meta property="og:url" content="<%= request.url %>">
     <meta name="twitter:card" content="summary_large_image">
 
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
 
     <% if Rails.env.production? %>
@@ -35,7 +37,7 @@
   <body>
     <nav class="site-nav">
       <%= link_to root_path, class: "nav-logo", title: "トップ" do %>
-        <span class="icon-placeholder nav-logo-img"></span>
+        <img src="/apple-touch-icon.png" class="nav-logo-img" alt="深夜薬局 Bar">
       <% end %>
       <div class="nav-links">
         <%= link_to play_path, class: "nav-icon-link", title: "服薬指導箋" do %>

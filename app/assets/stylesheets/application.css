@@ -82,8 +82,9 @@ body {
 }
 
 .nav-logo-img {
-  width: 36px;
-  height: 36px;
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
 }
 
 .nav-links {
@@ -226,6 +227,7 @@ body {
 }
 
 .landing-subtitle {
+  font-family: 'Zen Kurenaido', serif;
   font-size: 15px;
   color: var(--text-muted);
   margin-bottom: 40px;
