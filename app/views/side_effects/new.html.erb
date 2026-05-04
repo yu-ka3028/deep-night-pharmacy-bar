@@ -3,7 +3,7 @@
   <div class="pharmacist-greeting feature-greeting">
     <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
     <p class="greeting-text">
-      薬剤師の<strong><%= pharmacist_name %></strong>です。本日はどうなさいましたか？
+      薬剤師の<strong><%= pharmacist_name %></strong>です。<br>本日はどうなさいましたか？
     </p>
   </div>
 
@@ -16,14 +16,27 @@
 
   <%= form_with url: side_effects_path, method: :post,
         data: { controller: "autosave", action: "submit->autosave#clear", autosave_key_value: "pharmacy_bar_report" } do |f| %>
-    <div class="input-section">
-      <%= f.label :user_input, "今日やったこと" %>
-      <%= f.text_area :user_input, placeholder: "例：久々のRailsで rails now とタイポ", rows: 6,
-            data: { autosave_target: "textarea", action: "input->autosave#save" } %>
-    </div>
-    <div class="form-actions">
-      <button type="button" class="btn-clear" data-action="click->autosave#clearInput">クリア</button>
-      <%= f.submit "副作用レポートを発行する" %>
+    <div class="chat-input-row">
+      <div class="input-section chat-input-area">
+        <%= f.label :user_input, "今日やったこと" %>
+        <div class="textarea-wrapper">
+          <%= f.text_area :user_input, placeholder: "例：久々のRailsで rails now とタイポ", rows: 5,
+                data: { autosave_target: "textarea", action: "input->autosave#save" } %>
+          <button type="button" class="btn-clear-icon" data-action="click->autosave#clearInput" title="クリア">
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <%= f.button class: "chat-send-btn", type: "submit", title: "送信" do %>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+          </svg>
+        <% end %>
+      </div>
+      <div class="chat-input-side">
+        <%= image_tag "user-icon.png", class: "chat-user-icon", alt: "あなた" %>
+      </div>
     </div>
   <% end %>
 </div>

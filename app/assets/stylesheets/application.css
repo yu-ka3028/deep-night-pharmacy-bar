@@ -14,7 +14,7 @@
 
 /* ── color tokens (always dark) ── */
 :root {
-  --bg:          #040810;
+  --bg:          #2a2d2b;
   --bg-card:     rgba(24, 29, 32, 0.45);
   --bg-input:    rgba(30, 37, 40, 0.4);
   --text:        #e4e8e6;
@@ -24,6 +24,9 @@
   --accent-hover:#8bbea8;
   --border:      #252d2a;
   --border-card: #2a3530;
+  --shiba-brown: #b87840;
+  --shiba-brown-hover: rgba(184, 120, 64, 0.15);
+  --accent-hover-bg:   rgba(122, 170, 150, 0.15);
   --flash-bg:    #2a2000;
   --flash-text:  #f0c040;
   --flash-border:#5a4000;
@@ -46,14 +49,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: 'Klee One', -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
 body {
   background:
-    linear-gradient(to right, rgba(2, 4, 8, 0.82) 0%, transparent 22%, transparent 78%, rgba(2, 4, 8, 0.82) 100%),
+    linear-gradient(to right, rgba(10, 10, 10, 0.8) 0%, transparent 22%, transparent 78%, rgba(10, 10, 10, 0.8) 100%),
     radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(255, 130, 0, 0.18)  0%, transparent 100%),
     radial-gradient(ellipse 18% 10% at 50% 108%, rgba(255, 90,  0, 0.07)  0%, transparent 100%),
     radial-gradient(ellipse at 8% 5%,            rgba(20, 55, 130, 0.14)  0%, transparent 48%),
@@ -112,6 +115,48 @@ body {
 .nav-icon {
   width: 22px;
   height: 22px;
+}
+
+.nav-icon-feature {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-external {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px;
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.footer-name {
+  font-family: 'New Tegomin', serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.footer-deco {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  opacity: 0.85;
 }
 
 /* ── flash ── */
@@ -227,7 +272,7 @@ body {
 }
 
 .landing-subtitle {
-  font-family: 'Zen Kurenaido', serif;
+  font-family: 'Klee One', cursive;
   font-size: 15px;
   color: var(--text-muted);
   margin-bottom: 40px;
@@ -251,9 +296,9 @@ body {
   width: 72px;
   height: 72px;
   flex-shrink: 0;
-  object-fit: contain;
-  mask-image: radial-gradient(circle at center, black 52%, transparent 78%);
-  -webkit-mask-image: radial-gradient(circle at center, black 52%, transparent 78%);
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 0 12px 4px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .greeting-text {
@@ -261,7 +306,6 @@ body {
   line-height: 1.8;
   color: var(--text-muted);
   text-align: left;
-  max-width: 320px;
 }
 
 .greeting-text strong {
@@ -271,6 +315,11 @@ body {
 .feature-greeting {
   margin-bottom: 24px;
   justify-content: flex-start;
+}
+
+.feature-greeting .greeting-text {
+  flex: 1;
+  max-width: none;
 }
 
 /* ── お品書き ── */
@@ -519,6 +568,93 @@ body {
   font-weight: 500;
 }
 
+/* ── chat input layout ── */
+.chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.chat-input-area {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.textarea-wrapper {
+  position: relative;
+}
+
+.btn-clear-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  opacity: 0.4;
+  transition: opacity 0.15s;
+  border-radius: 3px;
+}
+
+.btn-clear-icon:hover {
+  opacity: 1;
+}
+
+.btn-clear-icon svg {
+  width: 11px;
+  height: 11px;
+}
+
+.chat-input-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding-top: 34px;
+}
+
+.chat-user-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 0 12px 4px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.chat-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-left: auto;
+  transition: background 0.15s;
+}
+
+.chat-send-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+.chat-send-btn:hover {
+  background: var(--accent-hover);
+}
+
 /* ── form ── */
 .input-section {
   margin-bottom: 20px;
@@ -625,6 +761,15 @@ input[type="submit"]:hover {
   margin-bottom: 20px;
 }
 
+.original-topic-flat {
+  padding: 8px 4px;
+  margin-bottom: 8px;
+}
+
+.original-topic-flat .user-answer {
+  border-top: none;
+}
+
 .user-answer {
   margin-top: 16px;
   padding-top: 16px;
@@ -663,6 +808,56 @@ input[type="submit"]:hover {
   margin-top: 12px;
 }
 
+.prescription-title {
+  font-family: 'New Tegomin', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.prescription-formal {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+.prescription-formal p + p {
+  margin-top: 10px;
+}
+
+.pharmacist-result-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.pharmacist-result-body {
+  flex: 1;
+}
+
+.card-share-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.btn-share-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-share-sm .x-icon,
+.btn-share-sm .line-icon {
+  width: 12px;
+  height: 12px;
+}
+
 .prescription-actions {
   display: flex;
   gap: 12px;
@@ -679,12 +874,34 @@ input[type="submit"]:hover {
   font-weight: 600;
   text-decoration: none;
   color: var(--text-muted);
-  transition: border-color 0.15s, color 0.15s;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 
 .btn-retry:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.btn-forward {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-forward:hover {
+  background: var(--accent-hover-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-back {
+  border-color: var(--shiba-brown);
+  color: var(--shiba-brown);
+}
+
+.btn-back:hover {
+  background: var(--shiba-brown-hover);
+  border-color: var(--shiba-brown);
+  color: var(--shiba-brown);
 }
 
 .btn-share-x {

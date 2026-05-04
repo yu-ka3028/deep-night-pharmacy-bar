@@ -4,7 +4,7 @@
     <div class="pharmacist-greeting feature-greeting">
       <%= image_tag "pharmacist.png", class: "pharmacist-icon", alt: "柴犬薬剤師" %>
       <p class="greeting-text">
-        薬剤師の<strong><%= pharmacist_name %></strong>です。今宵のお題です。思うところを、お聞かせいただけますか。
+        薬剤師の<strong><%= pharmacist_name %></strong>です。今宵のお題です。<br>思うところを、お聞かせいただけますか。
       </p>
     </div>
 
@@ -18,11 +18,28 @@
 
     <%= form_with url: prescriptions_path, method: :post do |f| %>
       <%= f.hidden_field :topic_id, value: @topic.id %>
-      <div class="input-section">
-        <%= f.label :answer, "思ったことをそのまま、お聞かせください。" %>
-        <%= f.text_area :answer, placeholder: "パッと思いついたのは〜かな、知らんけど", rows: 6 %>
+      <div class="chat-input-row">
+        <div class="input-section chat-input-area" data-controller="clear">
+          <%= f.label :answer, "思ったことをそのまま、お聞かせください。" %>
+          <div class="textarea-wrapper">
+            <%= f.text_area :answer, placeholder: "パッと思いついたのは〜かな、知らんけど", rows: 5,
+                  data: { clear_target: "textarea" } %>
+            <button type="button" class="btn-clear-icon" data-action="click->clear#clear" title="クリア">
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <%= f.button class: "chat-send-btn", type: "submit", title: "送信" do %>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+            </svg>
+          <% end %>
+        </div>
+        <div class="chat-input-side">
+          <%= image_tag "user-icon.png", class: "chat-user-icon", alt: "あなた" %>
+        </div>
       </div>
-      <%= f.submit "服薬指導箋を生成する" %>
     <% end %>
   <% else %>
     <p>お題がまだ登録されていません。</p>
