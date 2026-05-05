@@ -85,9 +85,9 @@ body {
 }
 
 .nav-logo-img {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 11px;
 }
 
 .nav-links {
@@ -293,8 +293,8 @@ body {
 }
 
 .pharmacist-icon {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 50%;
@@ -622,8 +622,8 @@ body {
 }
 
 .chat-user-icon {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
