@@ -15,7 +15,7 @@
   <div class="topic-divider"></div>
 
   <%= form_with url: side_effects_path, method: :post,
-        data: { controller: "autosave", action: "submit->autosave#clear", autosave_key_value: "pharmacy_bar_report" } do |f| %>
+        data: { turbo: false, controller: "autosave loading", action: "submit->autosave#clear submit->loading#show", autosave_key_value: "pharmacy_bar_report", loading_message_value: "副作用レポートを作成中…", loading_icon_value: asset_path("pharmacist.png") } do |f| %>
     <div class="chat-input-row">
       <div class="input-section chat-input-area">
         <%= f.label :user_input, "今日やったこと" %>

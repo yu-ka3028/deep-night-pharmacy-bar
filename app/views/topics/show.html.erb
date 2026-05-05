@@ -16,7 +16,7 @@
     </section>
     <div class="topic-divider"></div>
 
-    <%= form_with url: prescriptions_path, method: :post do |f| %>
+    <%= form_with url: prescriptions_path, method: :post, data: { turbo: false, controller: "loading", action: "submit->loading#show", loading_message_value: "指導箋を作成中…", loading_icon_value: asset_path("pharmacist.png") } do |f| %>
       <%= f.hidden_field :topic_id, value: @topic.id %>
       <div class="chat-input-row">
         <div class="input-section chat-input-area" data-controller="clear">
