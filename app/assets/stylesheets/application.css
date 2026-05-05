@@ -541,7 +541,7 @@ body {
 }
 
 .topic-category {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--text-label);
@@ -777,7 +777,7 @@ input[type="submit"]:hover {
 }
 
 .answer-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--text-label);
@@ -862,6 +862,7 @@ input[type="submit"]:hover {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-retry {
@@ -870,7 +871,7 @@ input[type="submit"]:hover {
   background: transparent;
   border: 1px solid var(--border-card);
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   color: var(--text-muted);
