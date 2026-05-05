@@ -1,24 +1,56 @@
-# README
+# 深夜薬局バー / Deep Night Pharmacy Bar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> 昼は薬局、夜はバーになる謎の店。マスターはサングラスの柴犬薬剤師。
 
-Things you may want to cover:
+![OGP](public/ogp.png)
 
-* Ruby version
+---
 
-* System dependencies
+## このアプリについて
 
-* Configuration
+エンジニアを1年やってみて、考え込むより一旦言語化したほうがいいことが多かった。
 
-* Database creation
+正解を言わなきゃいけない場面では、人は黙る。  
+でも「正解なんてない」とわかれば、口が動く。  
+口が動けば、考えが整理される。  
+考えが整理されれば、次の問いが生まれる。
 
-* Database initialization
+このアプリはそのための場所。  
+バーのカウンターで、柴犬のマスターに向かってしゃべるみたいに。
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+## 機能
 
-* Deployment instructions
+### 今夜の肴
 
-* ...
+数学の未解決問題から食の科学まで、ジャンルをまたぐお題がランダムに出題される。  
+正解・不正解は関係ない。**今思ったことをそのまま入力するだけ。**
+
+柴犬薬剤師が**服薬指導箋**として返答してくれる。
+
+![服薬指導箋の例](docs/screenshots/topic_result.png)
+
+### 今日の副作用レポート
+
+今日やったことを入力すると、**効能・効果 / 副作用 / 今夜の処方（酒）** がAIで生成される。
+
+![副作用レポートの例](docs/screenshots/side_effect_result.png)
+
+---
+
+## 技術スタック
+
+| | |
+|---|---|
+| 言語 / FW | Ruby 3.4 / Rails 7 |
+| DB | PostgreSQL |
+| AI | Claude API（anthropic gem） |
+| デプロイ | Render.com |
+
+---
+
+## 作った人
+
+エンジニア歴1年。  
+正解を言えないから黙ってしまう自分への処方として作った。
