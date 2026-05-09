@@ -269,6 +269,26 @@ body {
   .landing-title {
     font-size: 36px;
   }
+
+  .greeting-text {
+    font-size: 14px;
+  }
+
+  .greeting-supplement {
+    text-align: left;
+  }
+
+  .supplement-heading {
+    font-size: 13px;
+  }
+
+  .supplement-tagline {
+    font-size: 13px;
+  }
+
+  .supplement-body {
+    font-size: 13px;
+  }
 }
 
 .landing-subtitle {
@@ -315,7 +335,6 @@ body {
 }
 
 .greeting-supplement p {
-  font-size: 15px;
   line-height: 2;
   color: #b8a888;
 }
@@ -326,10 +345,21 @@ body {
 
 .supplement-heading {
   display: inline-block;
+  font-size: 14px;
   color: #fff5e0;
+  margin-bottom: 4px;
+}
+
+.supplement-tagline {
+  display: inline-block;
+  font-size: 14px;
   border-bottom: 1px solid rgba(255, 245, 224, 0.25);
   padding-bottom: 2px;
   margin-bottom: 4px;
+}
+
+.supplement-body {
+  font-size: 13px;
 }
 
 .greeting-text strong {
@@ -472,7 +502,7 @@ body {
 /* ── メニューカード（2枚横並び） ── */
 .menu-cards {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -481,7 +511,7 @@ body {
   text-decoration: none;
   color: inherit;
   display: block;
-  width: 192px;
+  width: 155px;
   transition: transform 0.15s, opacity 0.15s;
 }
 
@@ -511,7 +541,7 @@ body {
     radial-gradient(ellipse 60% 50% at 30% 35%, rgba(10,14,12,0.25) 0%, transparent 70%),
     radial-gradient(ellipse 45% 55% at 70% 70%, rgba(10,14,12,0.3) 0%, transparent 65%),
     rgba(10, 14, 12, 0.42);
-  padding: 28px 20px 24px;
+  padding: 20px 14px 18px;
   text-align: center;
   transform: rotate(0.5deg) translate(2px, -1px);
 }
@@ -521,19 +551,20 @@ body {
 }
 
 .menu-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   color: #7aaa96;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .menu-card-name {
   font-family: 'New Tegomin', serif;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
   color: #e0f0e8;
   margin-bottom: 6px;
   line-height: 1.5;
+  word-break: break-all;
 }
 
 .menu-card-sub {
