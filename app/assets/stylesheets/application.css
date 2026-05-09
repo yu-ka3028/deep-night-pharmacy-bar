@@ -568,6 +568,59 @@ body {
   font-weight: 500;
 }
 
+.topic-hint-wrap {
+  margin-top: 24px;
+  display: inline-block;
+  max-width: 72%;
+  position: relative;
+  transform: rotate(-0.6deg);
+}
+
+.topic-hint {
+  padding: 14px 16px 18px;
+  background: rgba(240, 230, 200, 0.06);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.topic-hint-curl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.topic-hint-curl svg {
+  display: block;
+}
+
+.hint-curl-shadow {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+.hint-curl-back {
+  fill: #3a3028;
+}
+
+.topic-hint-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #a08858;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.topic-hint-body {
+  font-size: 14px;
+  color: #c8b07a;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
 /* ── chat input layout ── */
 .chat-input-row {
   display: flex;

@@ -13,6 +13,20 @@
       <h1 class="topic-name"><%= @topic.name %></h1>
       <p class="topic-rule"><%= @topic.rule %></p>
       <p class="topic-question"><%= @topic.question %></p>
+      <% if @topic.hint.present? %>
+        <div class="topic-hint-wrap">
+          <div class="topic-hint">
+            <span class="topic-hint-label">📎 前提知識</span>
+            <p class="topic-hint-body"><%= @topic.hint %></p>
+          </div>
+          <span class="topic-hint-curl" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="3,24 24,3 3,3" class="hint-curl-shadow"/>
+              <polygon points="4,24 24,4 4,4" class="hint-curl-back"/>
+            </svg>
+          </span>
+        </div>
+      <% end %>
     </section>
     <div class="topic-divider"></div>
 
