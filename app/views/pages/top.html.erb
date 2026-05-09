@@ -12,34 +12,38 @@
     </p>
   </div>
 
-  <div class="osinagaki-wrap">
-    <div class="osinagaki">
-      <div class="osinagaki-paper">
-        <p class="osinagaki-header">本日のご案内</p>
+  <div class="greeting-supplement">
+    <p>
+      <span class="supplement-heading">【服薬指導箋】知識のお題が出ます。正解じゃなくていい——</span><br>
+      今の自分の言葉で答えてみてください。<br>
+      柴犬薬剤師が回答を分析し、処方箋を仕上げます。
+    </p>
+    <p>
+      <span class="supplement-heading">【副作用レポート】今日やったこと、感じたことをそのまま話してください。</span><br>
+      どんな一日も、ちゃんと薬になります。<br>
+      今夜のお酒と副作用レポートを処方します。
+    </p>
+  </div>
 
-        <div class="osinagaki-divider"></div>
-
-        <%= link_to play_path, class: "osinagaki-item" do %>
-          <div class="osinagaki-item-header">
-            <%= inline_svg "feature1-notes.svg", css_class: "osinagaki-icon" %>
-            <h2 class="osinagaki-name">服薬指導箋</h2>
-          </div>
-          <p class="osinagaki-desc">お題にお答えいただくと、柴犬薬剤師がお薬と服薬指導箋をご用意いたします。</p>
-          <p class="osinagaki-link">指導箋を受け取る →</p>
-        <% end %>
-
-        <div class="osinagaki-divider"></div>
-
-        <%= link_to new_side_effect_path, class: "osinagaki-item" do %>
-          <div class="osinagaki-item-header">
-            <%= inline_svg "feature2-diary.svg", css_class: "osinagaki-icon" %>
-            <h2 class="osinagaki-name">今日の副作用レポート</h2>
-          </div>
-          <p class="osinagaki-desc">今日のお困りごとをお聞かせください。副作用レポートを発行いたします。</p>
-          <p class="osinagaki-link">レポートを発行する →</p>
-        <% end %>
+  <div class="menu-cards">
+    <%= link_to play_path, class: "menu-card" do %>
+      <div class="menu-card-light">
+        <div class="menu-card-paper">
+          <%= inline_svg "feature1-notes.svg", css_class: "menu-card-icon" %>
+          <h2 class="menu-card-name">服薬指導箋</h2>
+          <p class="menu-card-sub">お題に答える</p>
+        </div>
       </div>
-    </div>
-    <div class="osinagaki-pole" aria-hidden="true"></div>
+    <% end %>
+
+    <%= link_to new_side_effect_path, class: "menu-card" do %>
+      <div class="menu-card-light menu-card-light--alt">
+        <div class="menu-card-paper menu-card-paper--alt">
+          <%= inline_svg "feature2-diary.svg", css_class: "menu-card-icon" %>
+          <h2 class="menu-card-name">副作用レポート</h2>
+          <p class="menu-card-sub">今日を振り返る</p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
