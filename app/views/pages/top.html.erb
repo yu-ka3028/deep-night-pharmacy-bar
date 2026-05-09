@@ -14,13 +14,19 @@
 
   <div class="greeting-supplement">
     <p>
-      <span class="supplement-heading">【服薬指導箋】</span><br>
+      <span class="supplement-heading-wrap">
+        <%= image_tag "medication-icon-sm.png", class: "supplement-icon", alt: "" %>
+        <span class="supplement-heading">【服薬指導箋】</span>
+      </span><br>
       <span class="supplement-tagline">知識のお題が出ます。正解じゃなくていい——</span><br>
       <span class="supplement-body">今の自分の言葉で答えてみてください。<br>
       柴犬薬剤師が回答を分析し、処方箋を仕上げます。</span>
     </p>
     <p>
-      <span class="supplement-heading">【副作用レポート】</span><br>
+      <span class="supplement-heading-wrap">
+        <%= image_tag "cocktail-icon-sm.png", class: "supplement-icon", alt: "" %>
+        <span class="supplement-heading">【副作用レポート】</span>
+      </span><br>
       <span class="supplement-tagline">今日やったこと、感じたことをそのまま話してください。</span><br>
       <span class="supplement-body">どんな一日も、ちゃんと薬になります。<br>
       今夜のお酒と副作用レポートを処方します。</span>
@@ -31,7 +37,7 @@
     <%= link_to play_path, class: "menu-card" do %>
       <div class="menu-card-light">
         <div class="menu-card-paper">
-          <%= inline_svg "feature1-notes.svg", css_class: "menu-card-icon" %>
+          <%= image_tag "medication-icon.png", class: "menu-card-icon", alt: "" %>
           <h2 class="menu-card-name">服薬指導箋</h2>
           <p class="menu-card-sub">お題に答える</p>
         </div>
@@ -41,7 +47,7 @@
     <%= link_to new_side_effect_path, class: "menu-card" do %>
       <div class="menu-card-light menu-card-light--alt">
         <div class="menu-card-paper menu-card-paper--alt">
-          <%= inline_svg "feature2-diary.svg", css_class: "menu-card-icon" %>
+          <%= image_tag "cocktail-icon.png", class: "menu-card-icon", alt: "" %>
           <h2 class="menu-card-name">副作用レポート</h2>
           <p class="menu-card-sub">今日を振り返る</p>
         </div>

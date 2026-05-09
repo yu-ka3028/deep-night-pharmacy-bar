@@ -343,11 +343,25 @@ body {
   margin-top: 20px;
 }
 
+.supplement-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.supplement-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
 .supplement-heading {
   display: inline-block;
   font-size: 14px;
   color: #fff5e0;
-  margin-bottom: 4px;
 }
 
 .supplement-tagline {
@@ -551,10 +565,11 @@ body {
 }
 
 .menu-card-icon {
-  width: 36px;
-  height: 36px;
-  color: #7aaa96;
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .menu-card-name {
