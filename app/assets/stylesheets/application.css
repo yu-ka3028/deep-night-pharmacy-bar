@@ -85,9 +85,9 @@ body {
 }
 
 .nav-logo-img {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 11px;
 }
 
 .nav-links {
@@ -269,13 +269,33 @@ body {
   .landing-title {
     font-size: 36px;
   }
+
+  .greeting-text {
+    font-size: 14px;
+  }
+
+  .greeting-supplement {
+    text-align: left;
+  }
+
+  .supplement-heading {
+    font-size: 13px;
+  }
+
+  .supplement-tagline {
+    font-size: 13px;
+  }
+
+  .supplement-body {
+    font-size: 13px;
+  }
 }
 
 .landing-subtitle {
   font-family: 'Klee One', cursive;
   font-size: 15px;
   color: var(--text-muted);
-  margin-bottom: 40px;
+  margin-bottom: 56px;
   padding-bottom: 28px;
   border: none;
   border-image: linear-gradient(to right, transparent, var(--border) 25%, var(--border) 75%, transparent) 1;
@@ -288,13 +308,13 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 36px;
+  margin-bottom: 48px;
   justify-content: center;
 }
 
 .pharmacist-icon {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 50%;
@@ -306,6 +326,54 @@ body {
   line-height: 1.8;
   color: var(--text-muted);
   text-align: left;
+}
+
+.greeting-supplement {
+  text-align: center;
+  margin-bottom: 52px;
+  opacity: 0.8;
+}
+
+.greeting-supplement p {
+  line-height: 2;
+  color: #b8a888;
+}
+
+.greeting-supplement p + p {
+  margin-top: 20px;
+}
+
+.supplement-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.supplement-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.supplement-heading {
+  display: inline-block;
+  font-size: 14px;
+  color: #fff5e0;
+}
+
+.supplement-tagline {
+  display: inline-block;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 245, 224, 0.25);
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+}
+
+.supplement-body {
+  font-size: 13px;
 }
 
 .greeting-text strong {
@@ -322,61 +390,53 @@ body {
   max-width: none;
 }
 
-/* ── お品書き ── */
+/* ── お品書き（ライトボックス + 手製紙） ── */
+@keyframes sign-glow {
+  0%, 85%   { box-shadow: 0 0 14px rgba(200,230,210,0.55), 0 0 40px rgba(180,220,195,0.25), 0 0 70px rgba(160,210,180,0.12), 0 6px 32px rgba(0,0,0,0.85); }
+  86%       { box-shadow: 0 0 3px rgba(200,230,210,0.12), 0 6px 32px rgba(0,0,0,0.85); }
+  87%       { box-shadow: 0 0 14px rgba(200,230,210,0.55), 0 0 40px rgba(180,220,195,0.25), 0 0 70px rgba(160,210,180,0.12), 0 6px 32px rgba(0,0,0,0.85); }
+  88%       { box-shadow: 0 0 5px rgba(200,230,210,0.18), 0 6px 32px rgba(0,0,0,0.85); }
+  90%       { box-shadow: 0 0 14px rgba(200,230,210,0.55), 0 0 40px rgba(180,220,195,0.25), 0 0 70px rgba(160,210,180,0.12), 0 6px 32px rgba(0,0,0,0.85); }
+  100%      { box-shadow: 0 0 14px rgba(200,230,210,0.55), 0 0 40px rgba(180,220,195,0.25), 0 0 70px rgba(160,210,180,0.12), 0 6px 32px rgba(0,0,0,0.85); }
+}
+
 .osinagaki-wrap {
   position: relative;
   display: inline-block;
-  transform: rotate(-1.4deg) skewX(-0.3deg);
   max-width: 440px;
   width: 100%;
 }
 
+.osinagaki-pole {
+  display: none;
+}
+
+/* ライトボックス本体 */
 .osinagaki {
-  background: #111a16;
-  border: 1px solid #3a6050;
-  border-radius: 3px 2px 4px 2px;
+  background: rgba(195, 225, 205, 0.28);
+  border: 2px solid rgba(200, 230, 210, 0.5);
+  border-radius: 4px;
   box-shadow:
-    inset 0 2px 12px rgba(0, 0, 0, 0.4),
-    3px 5px 28px rgba(0, 0, 0, 0.8),
-    -1px -1px 4px rgba(0, 0, 0, 0.4);
-  padding: 32px 40px;
-  text-align: left;
-  color: #c8e0d4;
+    0 0 14px rgba(200, 230, 210, 0.55),
+    0 0 40px rgba(180, 220, 195, 0.25),
+    0 0 70px rgba(160, 210, 180, 0.12),
+    0 6px 32px rgba(0, 0, 0, 0.85);
+  padding: 16px;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
+  animation: sign-glow 9s ease-in-out infinite;
 }
 
-.osinagaki::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+/* 手製紙：光を遮る暗い面、周囲16pxに光が漏れる */
+.osinagaki-paper {
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(0,0,0,0.03) 0%, transparent 40%, rgba(0,0,0,0.05) 100%);
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.page-curl {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.page-curl svg {
-  display: block;
-}
-
-.curl-fold-shadow {
-  fill: rgba(0, 0, 0, 0.4);
-}
-
-.curl-back {
-  fill: #4a6058;
+    radial-gradient(ellipse 55% 45% at 22% 38%, rgba(10,14,12,0.28) 0%, transparent 70%),
+    radial-gradient(ellipse 42% 55% at 72% 65%, rgba(10,14,12,0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 38% 35% at 58% 18%, rgba(10,14,12,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 15% 80%, rgba(10,14,12,0.22) 0%, transparent 55%),
+    rgba(10, 14, 12, 0.42);
+  padding: 28px 36px;
+  transform: rotate(0.6deg) translate(3px, -2px);
+  color: #c8e0d4;
 }
 
 .osinagaki-header {
@@ -451,6 +511,81 @@ body {
 
 .osinagaki-link:hover {
   opacity: 1;
+}
+
+/* ── メニューカード（2枚横並び） ── */
+.menu-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 155px;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.menu-card:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.menu-card-light {
+  background: rgba(195, 225, 205, 0.28);
+  border: 2px solid rgba(200, 230, 210, 0.5);
+  border-radius: 4px;
+  box-shadow:
+    0 0 10px rgba(200, 230, 210, 0.45),
+    0 0 28px rgba(180, 220, 195, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  animation: sign-glow 9s ease-in-out infinite;
+}
+
+.menu-card-light--alt {
+  animation-delay: 1.5s;
+}
+
+.menu-card-paper {
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 35%, rgba(10,14,12,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 70% 70%, rgba(10,14,12,0.3) 0%, transparent 65%),
+    rgba(10, 14, 12, 0.42);
+  padding: 20px 14px 18px;
+  text-align: center;
+  transform: rotate(0.5deg) translate(2px, -1px);
+}
+
+.menu-card-paper--alt {
+  transform: rotate(-0.7deg) translate(-1px, -2px);
+}
+
+.menu-card-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.menu-card-name {
+  font-family: 'New Tegomin', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #e0f0e8;
+  margin-bottom: 6px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.menu-card-sub {
+  font-size: 12px;
+  color: var(--text-label);
+  letter-spacing: 0.08em;
 }
 
 .feature-cards {
@@ -541,7 +676,7 @@ body {
 }
 
 .topic-category {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--text-label);
@@ -566,6 +701,59 @@ body {
   font-size: 17px;
   color: var(--text);
   font-weight: 500;
+}
+
+.topic-hint-wrap {
+  margin-top: 24px;
+  display: inline-block;
+  max-width: 72%;
+  position: relative;
+  transform: rotate(-0.6deg);
+}
+
+.topic-hint {
+  padding: 14px 16px 18px;
+  background: rgba(240, 230, 200, 0.06);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.topic-hint-curl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.topic-hint-curl svg {
+  display: block;
+}
+
+.hint-curl-shadow {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+.hint-curl-back {
+  fill: #3a3028;
+}
+
+.topic-hint-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #a08858;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.topic-hint-body {
+  font-size: 14px;
+  color: #c8b07a;
+  line-height: 1.8;
+  white-space: pre-wrap;
 }
 
 /* ── chat input layout ── */
@@ -622,8 +810,8 @@ body {
 }
 
 .chat-user-icon {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -777,7 +965,7 @@ input[type="submit"]:hover {
 }
 
 .answer-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--text-label);
@@ -862,6 +1050,7 @@ input[type="submit"]:hover {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-retry {
@@ -870,7 +1059,7 @@ input[type="submit"]:hover {
   background: transparent;
   border: 1px solid var(--border-card);
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   color: var(--text-muted);
@@ -957,4 +1146,44 @@ input[type="submit"]:hover {
   height: 15px;
   fill: currentColor;
   flex-shrink: 0;
+}
+
+/* ── loading overlay ── */
+@keyframes pulse-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.85; }
+  50%       { transform: translateY(-10px) scale(1.06); opacity: 1; }
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(42, 45, 43, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.loading-pharmacist {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 0 24px 6px rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: pulse-float 2s ease-in-out infinite;
+}
+
+.loading-message {
+  font-family: 'Klee One', cursive;
+  font-size: 15px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
 }

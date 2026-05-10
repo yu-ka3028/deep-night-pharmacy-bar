@@ -11,6 +11,9 @@
 
   <% body, pharmacist_comment = @prescription.ai_response.split(/薬剤師より：/, 2) %>
   <% title_part, card_part = body.to_s.split(/\n+/, 2) %>
+  <% drug_name = card_part.to_s.match(/薬剤名：(.+)/)&.[](1)&.strip %>
+  <% side_effect_name = card_part.to_s.match(/副作用名：(.+)/)&.[](1)&.strip %>
+  <% side_effect_first = card_part.to_s.match(/副作用内容：(.+?)。/m)&.[](1)&.strip&.then { |s| "#{s}。" } %>
 
   <% if pharmacist_comment.present? %>
     <div class="topic-divider"></div>
@@ -25,7 +28,7 @@
 
   <h2 class="prescription-title"><%= title_part&.strip %></h2>
 
-  <% tweet_text = "「#{@topic.name}」について柴犬薬剤師に相談してみた #Pharmacy_Bar" %>
+  <% tweet_text = "「#{@topic.name}」の服薬指導箋が届いた\n#{drug_name}\n副作用：#{side_effect_name}\n#{side_effect_first}\n#PharmacyBar" %>
   <section class="prescription-card">
     <div class="card-share-row">
       <%= link_to "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(tweet_text)}&url=#{ERB::Util.url_encode(root_url)}", target: "_blank", rel: "noopener noreferrer", class: "btn-share-x btn-share-sm" do %>
