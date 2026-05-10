@@ -2,7 +2,9 @@
 
 > 昼は薬局、夜はバーになる謎の店。マスターはサングラスの柴犬薬剤師。
 
-![OGP](public/ogp.png)
+[![OGP](public/ogp.png)](https://deep-night-pharmacy-bar.onrender.com/)
+
+**[https://deep-night-pharmacy-bar.onrender.com/](https://deep-night-pharmacy-bar.onrender.com/)**
 
 ---
 
